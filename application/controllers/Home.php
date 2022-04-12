@@ -26,10 +26,10 @@ class Home extends CI_Controller {
 	{
 		$config = [
 			'protocol' => "smtp",
-			'smtp_host' => "mail.akmanhancerli.com",
+			'smtp_host' => "smtp.gmail.com",
 			'smtp_port' => "587",
-			'smtp_user' => "akman@akmanhancerli.com",
-			'smtp_pass' => "asd",
+			'smtp_user' => "redlin3agency@gmail.com",
+			'smtp_pass' => "Redlin321*",
 			'starttls' => true,
 			'charset' => "UTF-8",
 			'mailtype' => "html",
@@ -39,16 +39,24 @@ class Home extends CI_Controller {
 
 		$this->load->library("email",$config);
 
-		$this->email->from("akman@akmanhancerli.com","HASANŞİMŞEK");
+		$this->email->from("redlin3agency@gmail.com","HASANŞİMŞEK");
 		$this->email->to("akmanhancerli@gmail.com");
 		$this->email->subject("deneme konu");
 		$this->email->message("deneme mesajı için geldim hacım");
 
 		$send = $this->email->send();
 
-		if ($send)
+		if ($send) {
+			return redirect()->to( base_url( '/') );
 			echo "mail başarılı bir şekilde gönderildi";
-		else
-			echo $this->email->print_debugger();
+		}
+		else {
+			return redirect()->to( base_url( '/') );
+			echo "<pre>";
+			print_r($this->email->print_debugger());
+			echo "</pre>";
+		}
+
+
 	}
 }
