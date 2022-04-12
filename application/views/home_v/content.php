@@ -282,17 +282,25 @@
 
 			<div class="col-lg-6">
 				<div class=" mt-4">
-					<form action="<?= base_url('mesaj-gonder') ?>">
+					<?php
+					$alert = $this->session->userdata("return");
+					if ($alert) {
+						?><div class="alert alert-<?= $alert['type'] ?>"><?= $alert['text'] ?></div>
+						<?php
+					}
+					?>
+
+					<form action="<?= base_url('mesaj-gonder') ?>" method="get">
 						<div class="row mb-2 pt-2">
 							<div class="col-12 col-lg-6 form-group mb-3">
-								<input type="text" class="form-control form-control-lg" placeholder="isim" />
+								<input type="text" name="name" class="form-control form-control-lg" placeholder="isim" />
 							</div>
 							<div class="col-12 col-lg-6 form-group mb-3">
-								<input type="email" class="form-control form-control-lg" placeholder="E-mail" />
+								<input type="email" name="email" class="form-control form-control-lg" placeholder="E-mail" />
 							</div>
 						</div>
 						<div class="form-group">
-							<textarea name="" cols="" rows="" class="form-control form-control-lg" placeholder="Mesajınız"></textarea>
+							<textarea name="message" cols="" rows="" class="form-control form-control-lg" placeholder="Mesajınız"></textarea>
 						</div>
 						<button type="submit" class="btn btn-danger btn-lg w-100 d-block mt-4">Gönder</button>
 					</form>

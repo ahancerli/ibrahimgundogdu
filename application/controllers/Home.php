@@ -9,8 +9,6 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('session');
-		$this->load->helper('form');
-		$this->load->library("form_validation");
 
 	}
 
@@ -24,37 +22,36 @@ class Home extends CI_Controller {
 
 	public function sendMessage()
 	{
-		$config = [
-			'protocol' => "smtp",
-			'smtp_host' => "smtp.gmail.com",
-			'smtp_port' => "587",
-			'smtp_user' => "redlin3agency@gmail.com",
-			'smtp_pass' => "Redlin321*",
-			'starttls' => true,
-			'charset' => "UTF-8",
-			'mailtype' => "html",
-			'wordwrap' => true,
-			'newline' => "\r\n",
-		];
+		$name = $this->input->get("name");
+		$email = $this->input->get("email");
+		$message = $this->input->get("message");
 
-		$this->load->library("email",$config);
-
-		$this->email->from("redlin3agency@gmail.com","HASANŞİMŞEK");
-		$this->email->to("akmanhancerli@gmail.com");
-		$this->email->subject("deneme konu");
-		$this->email->message("deneme mesajı için geldim hacım");
+		$this->load->library("email");
+		$this->email->from("info@ibrahimgundogdu.space","İbrahim Gündoğdu Seo Marketing");
+		$this->email->to("info@ibrahimgundogdu.space");
+		$this->email->subject("Seo Marketing");
+		$this->email->message("
+			<strong>$name</strong> Kullanıcısından Aşağıdaki Mesaj Gelmiştir <br>
+			<strong>Email Adresi: </strong> $email <br>
+			<strong>Mesajı: </strong> $message <br>
+ 							");
+		$returnArray['title'] = "İşlem Başarılı";
+		$returnArray['text'] = "Mail Başarı İle Atıldı";
+		$returnArray['type'] = "success";
 
 		$send = $this->email->send();
 
 		if ($send) {
-			return redirect()->to( base_url( '/') );
-			echo "mail başarılı bir şekilde gönderildi";
+			$this->session->set_flashdata("return", $returnArray);
+			redirect(base_url('/#contact'));
 		}
 		else {
-			return redirect()->to( base_url( '/') );
-			echo "<pre>";
-			print_r($this->email->print_debugger());
-			echo "</pre>";
+			$returnArray['title'] = "İşlem Başarısız";
+			$returnArray['text'] = "Mail Atarken Hata Oluştu. Lütfen Mail Şifrenizi Kontrol ediniz";
+			$returnArray['type'] = "danger";
+
+			$this->session->set_flashdata("return", $returnArray);
+			redirect(base_url('/#contact'));
 		}
 
 
