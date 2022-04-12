@@ -133,9 +133,9 @@ h1, h2, h3, h4, h5, h6 {
 	border-color: #aab0bc;
 }
 .owl-carousel .owl-dots .owl-dot span {
- width: .7rem;
- height: .7rem;
- margin: 0 .3rem;
+	width: .7rem;
+	height: .7rem;
+	margin: 0 .3rem;
 	background: #aab0bc;
 	opacity: .5;
 	display: block;
@@ -185,8 +185,8 @@ h1, h2, h3, h4, h5, h6 {
 	color: #fff;
 }
 ::placeholder {
-font-size:15px;
-font-weight:600;
+	font-size:15px;
+	font-weight:600;
 }
 .bb {
 	width: 80px;
@@ -224,52 +224,52 @@ font-weight:600;
 	padding: 0;
 }
 @media (max-width: 990px) {
-.nav-sticky {
-	padding: 10px 0;
-}
-.navbar .navbar-nav {
-	padding: 0;
-	padding-top: 3px;
-}
-.navbar-collapse ul li {
-	border-bottom: 1px solid #ddd;
-	display: block;
-	width: 100%;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	background-color: #FFF;
-	text-align: center;
-}
-.navbar-collapse ul li:first-child {
-	border-top-right-radius: 4px;
-	border-top-left-radius: 4px;
-}
-.navbar-collapse ul li:last-child {
-	border-bottom: none;
-	border-bottom-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-}
+	.nav-sticky {
+		padding: 10px 0;
+	}
+	.navbar .navbar-nav {
+		padding: 0;
+		padding-top: 3px;
+	}
+	.navbar-collapse ul li {
+		border-bottom: 1px solid #ddd;
+		display: block;
+		width: 100%;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background-color: #FFF;
+		text-align: center;
+	}
+	.navbar-collapse ul li:first-child {
+		border-top-right-radius: 4px;
+		border-top-left-radius: 4px;
+	}
+	.navbar-collapse ul li:last-child {
+		border-bottom: none;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}
 }
 @media (max-width:700px) {
-.icon-square {
-	display: none;
-}
-.back-image-five {
-	background-image: none;
-}
-.lead2 {
-	font-size: 22px;
-}
-.element-item {
-	margin: 10px;
-	background: #fff;
-}
-.element-item img {
-	max-width: 350px;
-}
-.button {
-	margin-bottom: 1px;
-}
+	.icon-square {
+		display: none;
+	}
+	.back-image-five {
+		background-image: none;
+	}
+	.lead2 {
+		font-size: 22px;
+	}
+	.element-item {
+		margin: 10px;
+		background: #fff;
+	}
+	.element-item img {
+		max-width: 350px;
+	}
+	.button {
+		margin-bottom: 1px;
+	}
 }
 :target::before {
 	content: '';
